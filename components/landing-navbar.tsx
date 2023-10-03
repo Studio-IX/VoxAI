@@ -18,7 +18,7 @@ export const LandingNavbar = () => {
         </Link>
       </div>
 
-      <div className="flex flex-row border border-[#2D2C54] rounded-full py-4 px-10 space-x-8">
+      <div className="flex flex-row border bg-[#14131C] border-[#2D2C54] rounded-full py-4 px-10 space-x-8">
         <p className="text-white cursor-pointer">Features</p>
         <p className="text-white cursor-pointer">About</p>
         <p className="text-white cursor-pointer">Testimonials</p>
