@@ -1,35 +1,39 @@
 "use client";
 
-import { Montserrat } from "next/font/google";
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 import { useAuth } from "@clerk/nextjs";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-
-const font = Montserrat({ weight: '600', subsets: ['latin'] });
+import { ChevronRight } from "lucide-react";
 
 export const LandingNavbar = () => {
   const { isSignedIn } = useAuth();
 
   return (
-    <nav className="p-4 bg-transparent flex items-center justify-between">
-      <Link href="/" className="flex items-center">
-        <div className="relative h-8 w-8 mr-4">
-          <Image fill alt="Logo" src="/logo.png" />
-        </div>
-        <h1 className={cn("text-2xl font-bold text-white", font.className)}>
-          VOX AI
-        </h1>
-      </Link>
-      <div className="flex items-center gap-x-2">
+    <nav className="py-5 bg-transparent flex flex-row items-center justify-between">
+      <div>
+        <Link href="/" className="flex items-center">
+          <Image width={150} height={30} alt="Logo" src="/vox.svg" />
+        </Link>
+      </div>
+
+      <div className="flex flex-row border border-[#2D2C54] rounded-full py-4 px-10 space-x-8">
+        <p className="text-white cursor-pointer">Features</p>
+        <p className="text-white cursor-pointer">About</p>
+        <p className="text-white cursor-pointer">Testimonials</p>
+        <p className="text-white cursor-pointer">Pricing</p>
+        <p className="text-white cursor-pointer">FAQ</p>
+      </div>
+
+      <div>
         <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
-          <Button variant="outline" className="rounded-full">
+          <Button size="nav" variant="primary" className="rounded-full">
             Get Started
+            <Image className="ml-2" width={24} height={24} src="/arrow_right.svg" alt="Arrow icon"/>
           </Button>
         </Link>
       </div>
     </nav>
-  )
-}
+  );
+};
