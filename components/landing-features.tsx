@@ -69,7 +69,7 @@ const LandingFeatures = () => {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between space-x-0 md:space-x-5 space-y-5 md:space-y-0 items-center mt-5 md:mt-20 px-5 md:px-0">
+      <div className="flex flex-col md:flex-row justify-between space-x-0 md:space-x-5 space-y-5 md:space-y-0 items-center mt-5 md:mt-5 px-5 md:px-0">
         <div className="flex flex-col items-center w-full md:w-[445px] h-[305px] bg-[#19192A] rounded-[20px] justify-between">
           <div className="mt-6">
             <Image
