@@ -2,37 +2,98 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useAuth } from "@clerk/nextjs";
 
+import { useAuth } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
+import { MenuIcon, X } from "lucide-react";
+import { useState } from "react";
 
 export const LandingNavbar = () => {
+  const navLinks = [
+    {
+      id: "features",
+      title: "Features",
+    },
+    {
+      id: "about",
+      title: "About",
+    },
+    {
+      id: "testimonial",
+      title: "Testimonial",
+    },
+    {
+      id: "pricing",
+      title: "Pricing",
+    },
+    {
+      id: "faq",
+      title: "FAQ",
+    },
+  ];
+
   const { isSignedIn } = useAuth();
+  const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="py-5 bg-transparent flex flex-row items-center justify-between">
+    <nav className="py-7 md:py-5 bg-transparent flex flex-row items-center justify-between px-5 md:px-0">
       <div>
         <Link href="/" className="flex items-center">
-          <Image width={150} height={30} alt="Logo" src="/vox.svg" />
+          <Image width={155} height={35} alt="Logo" src="/vox.svg" />
         </Link>
       </div>
 
-      <div className="flex flex-row border bg-[#14131C] border-[#2D2C54] rounded-full py-4 px-10 space-x-8">
-        <p className="text-white cursor-pointer">Features</p>
-        <p className="text-white cursor-pointer">About</p>
-        <p className="text-white cursor-pointer">Testimonials</p>
-        <p className="text-white cursor-pointer">Pricing</p>
-        <p className="text-white cursor-pointer">FAQ</p>
+      <div className="hidden md:block">
+        <div className="flex flex-row border bg-[#14131C] border-[#2D2C54] rounded-full py-4 px-10 space-x-8">
+          <p className="text-white cursor-pointer font-dmSans">Features</p>
+          <p className="text-white cursor-pointer font-dmSans">About</p>
+          <p className="text-white cursor-pointer font-dmSans">Testimonials</p>
+          <p className="text-white cursor-pointer font-dmSans">Pricing</p>
+          <p className="text-white cursor-pointer font-dmSans">FAQ</p>
+        </div>
       </div>
 
-      <div>
+      <div className="hidden md:block">
         <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
           <Button size="nav" variant="primary" className="rounded-full">
-            Get Started
-            <Image className="ml-2" width={24} height={24} src="/arrow_right.svg" alt="Arrow icon"/>
+            {isSignedIn ? "Dashboard" : "Get Started"}
+            <Image
+              className="ml-2"
+              width={24}
+              height={24}
+              src="/arrow_right.svg"
+              alt="Arrow icon"
+            />
           </Button>
         </Link>
+      </div>
+
+      <div className="md:hidden justify-end items-center">
+        <div
+          className="flex items-center justify-center w-11 h-11 bg-white rounded-lg"
+          onClick={() => setToggle((prev) => !prev)}
+        >
+          {toggle ? <X /> : <MenuIcon />}
+        </div>
+
+        <div
+          className={`${
+            toggle ? "flex" : "hidden"
+          } p-6 bg-bg border bg-[#6666D4] border-[#242424] absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl z-20`}
+        >
+          <ul className="list-none flex-col justify-end items-center flex-1">
+            {navLinks.map((nav, index) => (
+              <li
+                key={nav.id}
+                className={`font-dmSans font-normal cursor-pointer text-[16px] ${
+                  index === navLinks.length - 1 ? "mr-0" : "mb-4"
+                } text-white mr-10`}
+              >
+                <a href={`#${nav.id}`}>{nav.title}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </nav>
   );
