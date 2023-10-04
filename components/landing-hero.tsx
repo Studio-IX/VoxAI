@@ -86,7 +86,7 @@ export const LandingHero = () => {
         <Image
           height={800}
           width={1420}
-          src="/dashboard.svg"
+          src="/hero_img.png"
           alt="Vox-ai dashabord"
         />
       </div>
