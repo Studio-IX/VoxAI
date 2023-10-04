@@ -7,8 +7,8 @@ import { ModalProvider } from "@/components/modal-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "VOX AI",
-  description: "Vox AI Platform",
+  title: "VOX AI - All In One AI Tool",
+  description: "Vox all in one AI platform",
 };
 
 export default function RootLayout({
@@ -20,9 +20,9 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          <ModalProvider/>
+          <ModalProvider />
           {children}
-          </body>
+        </body>
       </html>
     </ClerkProvider>
   );
