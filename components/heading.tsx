@@ -1,31 +1,17 @@
-import { LucideIcon } from "lucide-react";
-
-import { cn } from "@/lib/utils";
-
 interface HeadingProps {
   title: string;
   description: string;
-  icon: LucideIcon;
-  iconColor?: string;
-  bgColor?: string;
 }
 
-export const Heading = ({
-  title,
-  description,
-  icon: Icon,
-  iconColor,
-  bgColor,
-}: HeadingProps) => {
+export const Heading = ({ title, description }: HeadingProps) => {
   return (
-    <div className="px-4 lg:px-8 flex items-center gap-x-3 mb-8">
-      <div className={cn("p-2 w-fit rounded-md", bgColor)}>
-        <Icon className={cn("w-10 h-10", iconColor)} />
-      </div>
-      <div>
-        <h2 className="text-3xl font-bold">{title}</h2>
-        <p className="text-sm text-muted-foreground">{description}</p>
-      </div>
+    <div className="flex flex-col items-start px-10 -mt-10 space-y-3">
+      <h2 className="text-2xl md:text-[28px] font-semibold text-start text-white">
+        {title}
+      </h2>
+      <p className="text-[#B2B2B2] font-light text-sm md:text-[18px] text-star">
+        {description}
+      </p>
     </div>
   );
 };

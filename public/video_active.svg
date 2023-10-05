@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="vuesax_bold_video-horizontal" data-name="vuesax/bold/video-horizontal" transform="translate(-172 -380)">
+    <g id="video-horizontal">
+      <path id="Vector" d="M9.25,0H0V8.33a.915.915,0,0,0,.01.17H9.25Z" transform="translate(174 387.86)" fill="#fff"/>
+      <path id="Vector-2" data-name="Vector" d="M0,4.36H3.56V0H.03V4.24A.527.527,0,0,1,0,4.36Z" transform="translate(179.69 382)" fill="#fff"/>
+      <path id="Vector-3" data-name="Vector" d="M4.09,4.08V0A4.978,4.978,0,0,0,0,4.2H4.11A.5.5,0,0,1,4.09,4.08Z" transform="translate(174.13 382.16)" fill="#fff"/>
+      <path id="Vector-4" data-name="Vector" d="M0,0H3.47V4.36H0Z" transform="translate(184.75 382)" fill="#fff"/>
+      <path id="Vector-5" data-name="Vector" d="M0,4.21H4.16A4.965,4.965,0,0,0,.01,0V4.18C.01,4.19,0,4.2,0,4.21Z" transform="translate(189.71 382.15)" fill="#fff"/>
+      <path id="Vector-6" data-name="Vector" d="M0,3.99A4.93,4.93,0,0,0,4.1,0H0Z" transform="translate(189.72 397.86)" fill="#fff"/>
+      <path id="Vector-7" data-name="Vector" d="M0,0H3.47V4.14H0Z" transform="translate(184.75 397.86)" fill="#fff"/>
+      <path id="Vector-8" data-name="Vector" d="M0,8.5H9.24a.915.915,0,0,0,.01-.17V0H0Z" transform="translate(184.75 387.86)" fill="#fff"/>
+      <path id="Vector-9" data-name="Vector" d="M0,0H3.53V4.14H0Z" transform="translate(179.72 397.86)" fill="#fff"/>
+      <path id="Vector-10" data-name="Vector" d="M0,0A4.934,4.934,0,0,0,4.04,3.98V0Z" transform="translate(174.18 397.86)" fill="#fff"/>
+      <path id="Vector-11" data-name="Vector" d="M0,0H24V24H0Z" transform="translate(172 380)" fill="none" opacity="0"/>
+    </g>
+  </g>
+</svg>

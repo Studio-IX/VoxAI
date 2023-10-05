@@ -7,7 +7,6 @@ import axios from "axios";
 import OpenAI from "openai";
 
 import { cn } from "@/lib/utils";
-import { MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -22,6 +21,7 @@ import Loader from "@/components/loader";
 import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
 import { useProModal } from "@/hooks/use-pro-modal";
+import Image from "next/image";
 
 const ConversationPage = () => {
   const proModal = useProModal();
@@ -62,71 +62,98 @@ const ConversationPage = () => {
   };
 
   return (
-    <div>
-      <Heading
-        title="Conversation"
-        description="Our most advanced conversation model."
-        icon={MessageSquare}
-        iconColor="text-violet-500"
-        bgColor="bg-violet-500/10"
-      />
-      <div className="px-4 lg:px-8">
-        <div>
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2"
-            >
-              <FormField
-                name="prompt"
-                render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-10">
-                    <FormControl className="m-0 p-0">
-                      <Input
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        disabled={isLoading}
-                        placeholder="How do I calculate the radius of a circle?"
-                        {...field}
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <Button
-                className="col-span-12 lg:col-span-2 w-full"
-                disabled={isLoading}
-              >
-                Generate
-              </Button>
-            </form>
-          </Form>
-        </div>
-        <div className="space-y-4 mt-4">
-          {isLoading && (
-            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-              <Loader />
-            </div>
-          )}
-          {messages.length === 0 && !isLoading && (
-            <Empty label="No conversation started" />
-          )}
-          <div className="flex flex-col-reverse gap-y-4">
-            {messages.map((message) => (
-              <div
-                key={message.content}
-                className={cn(
-                  "p-8 w-full flex items-start gap-x-8 rounded-lg",
-                  message.role === "user"
-                    ? "bg-white border border-black/10"
-                    : "bg-muted"
-                )}
-              >
-                {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-                <p className="text-sm">{message.content}</p>
+    <div className="flex flex-col justify-between h-[85vh]">
+      <div>
+        <Heading
+          title="Conversation"
+          description="Our most advanced conversation model."
+        />
+        <div className="px-4 lg:px-8">
+          <div className="flex-1 overflow-y-auto pr-4 pl-4 pt-4 pb-4">
+            <div className="space-y-4 mt-4">
+              {isLoading && (
+                <div className="p-8 rounded-lg w-full h-[600px] flex items-center justify-center">
+                  <Loader />
+                </div>
+              )}
+              {messages.length === 0 && !isLoading && (
+                <Empty label="No conversation started" />
+              )}
+
+              <div className="flex flex-col gap-y-6 overflow-y-auto">
+                {messages.map((message) => (
+                  <div
+                    className={cn(
+                      "flex",
+                      message.role === "user"
+                        ? "flex-row-reverse items-center"
+                        : "flex-row items-center"
+                    )}
+                    key={message.content}
+                  >
+                    {message.role === "user" ? (
+                      <div className="ml-6">
+                        <UserAvatar />
+                      </div>
+                    ) : (
+                      <div className="mr-6">
+                        <BotAvatar />
+                      </div>
+                    )}
+                    <div
+                      className={cn(
+                        "px-4 py-4 w-fit flex items-center gap-x-8 rounded-[10px]",
+                        message.role === "user"
+                          ? "bg-[#242231]"
+                          : "bg-[#6666D4]"
+                      )}
+                    >
+                      <p
+                        className={cn(
+                          "text-[18px] font-dmSans font-normal",
+                          message.role === "user" ? "text-white" : "text-white"
+                        )}
+                      >
+                        {message.content}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
+      </div>
+
+      <div className="w-full flex flex-row justify-between px-4">
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="rounded-lg w-full flex flex-row justify-between p-4 px-3 md:px-6 focus-within:shadow-sm gap-2"
+          >
+            <FormField
+              name="prompt"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  <FormControl className="m-0 p-0 px-5">
+                    <Input
+                      className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                      disabled={isLoading}
+                      placeholder="How do I calculate the radius of a circle?"
+                      {...field}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <Button
+              className="w-[60px] h-[60px] rounded-[10px] ml-2"
+              disabled={isLoading}
+            >
+              <Image width={24} height={24} src="/send.svg" alt="Send icon" />
+            </Button>
+          </form>
+        </Form>
       </div>
     </div>
   );

@@ -1,64 +1,54 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import {
-  LayoutDashboard,
-  MessageSquare,
-  ImageIcon,
-  VideoIcon,
-  Music,
-  Code,
-  Settings,
-} from "lucide-react";
-import { FreeCounter } from "./free-counter";
 
-const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
+import { FreeCounter } from "./free-counter";
 
 const routes = [
   {
     label: "Dashboard",
-    icon: LayoutDashboard,
+    icon: "/dash.svg",
+    activeIcon: "/dash_active.svg",
     href: "/dashboard",
-    color: "text-sky-500",
   },
   {
     label: "Conversation",
-    icon: MessageSquare,
+    icon: "/conversation.svg",
+    activeIcon: "/conversation_active.svg",
     href: "/conversation",
-    color: "text-violet-500",
   },
   {
     label: "Image Generation",
-    icon: ImageIcon,
+    icon: "/image.svg",
+    activeIcon: "/image_active.svg",
     href: "/image",
-    color: "text-pink-700",
   },
   {
     label: "Video Generation",
-    icon: VideoIcon,
+    icon: "video.svg",
+    activeIcon: "/video_active.svg",
     href: "/video",
-    color: "text-orange-700",
   },
   {
     label: "Music Generation",
-    icon: Music,
+    icon: "/music.svg",
+    activeIcon: "/music_active.svg",
     href: "/music",
-    color: "text-emerald-500",
   },
   {
     label: "Code Generation",
-    icon: Code,
+    icon: "/codeicon.svg",
+    activeIcon: "/codeicon_active.svg",
     href: "/code",
-    color: "text-green-700",
   },
   {
     label: "Settings",
-    icon: Settings,
+    icon: "/settings.svg",
+    activeIcon: "/settings_active.svg",
     href: "/settings",
   },
 ];
@@ -70,15 +60,10 @@ interface SidebarProps {
 const Sidebar = ({ apiLimitCount = 0 }: SidebarProps) => {
   const pathname = usePathname();
   return (
-    <div className="space-y-4 py-4 flex flex-col h-screen bg-[#111827] text-white">
+    <div className="space-y-4 py-4 flex flex-col h-screen bg-[#14131C] w-[350px] px-2 text-white">
       <div className="px-3 py-2 flex-1">
         <Link href="/dashboard" className="flex items-center pl-3 mb-14">
-          <div className="relative w-8 h-8 mr-4">
-            <Image fill alt="Logo" src="/logo.png" />
-          </div>
-          <h1 className={cn("text-2xl font-bold", montserrat.className)}>
-            Vox AI
-          </h1>
+          <Image width={155} height={35} alt="Logo" src="/vox.svg" />
         </Link>
         <div className="space-y-1">
           {routes.map((route) => (
@@ -86,14 +71,20 @@ const Sidebar = ({ apiLimitCount = 0 }: SidebarProps) => {
               href={route.href}
               key={route.href}
               className={cn(
-                "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
+                "text-[18px] font-dmSans font-normal group flex p-3 w-full justify-start cursor-pointer hover:text-white hover:bg-[#6666D4]/10 rounded-lg transition",
                 pathname === route.href
-                  ? "text-white bg-white/10"
-                  : "text-zinc-400"
+                  ? "text-white bg-[#6666D4] hover:bg-[#6666D4]"
+                  : "text-[#B2B2B2]"
               )}
             >
               <div className="flex items-center flex-1">
-                <route.icon className={cn("h-5 w-5 mr-3", route.color)} />
+                <Image
+                  width={24}
+                  height={24}
+                  alt={route.label}
+                  src={pathname === route.href ? route.activeIcon : route.icon}
+                  className={cn("h-5 w-5 mr-3")}
+                />
                 {route.label}
               </div>
             </Link>

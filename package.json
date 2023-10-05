@@ -40,6 +40,7 @@
     "react-hook-form": "^7.45.4",
     "react-markdown": "^8.0.7",
     "react-scroll": "^1.8.9",
+    "react-spinners": "^0.13.8",
     "react-transition-group": "^4.4.5",
     "replicate": "^0.16.1",
     "stripe": "^13.4.0",
