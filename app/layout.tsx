@@ -1,10 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ModalProvider } from "@/components/modal-provider";
+import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"] });
+const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "VOX AI - All In One AI Tool",
@@ -17,11 +18,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        variables: {
+          colorPrimary: "#6666D4",
+          colorBackground: "#252433",
+          colorText: "white",
+          colorInputBackground: "#3D3C54",
+          colorInputText: "white",
+          fontSize: "18px",
+        },
+      }}
+    >
       <html lang="en">
-        <body className={inter.className}>
+        <body className={cn("bg-[#14131C]", dmSans.className)}>
           <ModalProvider />
-        {children}
+          {children}
         </body>
       </html>
     </ClerkProvider>

@@ -72,8 +72,11 @@ const ConversationPage = () => {
           <div className="flex-1 overflow-y-auto pr-4 pl-4 pt-4 pb-4">
             <div className="space-y-4 mt-4">
               {isLoading && (
-                <div className="p-8 rounded-lg w-full h-[600px] flex items-center justify-center">
+                <div className="p-8 rounded-lg w-full h-[600px] flex flex-col items-center justify-center">
                   <Loader />
+                  <p className="text-white mt-10 font-dmSans font-normal text-center text-[18px]">
+                    Thinking...
+                  </p>
                 </div>
               )}
               {messages.length === 0 && !isLoading && (

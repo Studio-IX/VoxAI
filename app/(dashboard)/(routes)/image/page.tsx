@@ -69,16 +69,17 @@ const PhotoPage = () => {
         <Heading
           title="Image Generation"
           description="Turn your prompt into an image."
-        />{" "}
+        />
         {isLoading && (
-          <div className="p-8 rounded-lg w-full h-[600px] flex items-center justify-center">
+          <div className="p-8 rounded-lg w-full h-[600px] flex flex-col items-center justify-center">
             <Loader />
+            <p className="text-white mt-10 font-dmSans font-normal text-center text-[18px]">Generating images</p>
           </div>
         )}
         {photos.length === 0 && !isLoading && (
           <Empty label="No images generated." />
         )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8 pl-10">
+        <div className="w-[88%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8 pl-10 gap-7">
           {photos.map((src) => (
             <Card
               key={src}
@@ -87,7 +88,7 @@ const PhotoPage = () => {
               <div className="relative w-[310px] h-[305px]">
                 <Image fill alt="Generated" src={src} />
               </div>
-              <div className="absolute mt-[225px] ml-[20px]">
+              <div className="absolute mt-[225px] ml-[230px]">
                 <Button
                   onClick={() => window.open(src)}
                   variant="primary"

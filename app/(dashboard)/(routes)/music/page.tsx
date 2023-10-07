@@ -5,7 +5,7 @@ import { Heading } from "@/components/heading";
 
 import axios from "axios";
 
-import { Music } from "lucide-react";
+import { Music, Sparkles } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -51,26 +51,42 @@ const MusicPage = () => {
   };
 
   return (
-    <div>
-      <Heading
-        title="Music Generation"
-        description="Turn your prompt into music."
-        icon={Music}
-        iconColor="text-emerald-500"
-        bgColor="bg-emerald-500/10"
-      />
-      <div className="px-4 lg:px-8">
-        <div>
+    <div className="flex flex-col justify-between h-[85vh]">
+      <div>
+        <Heading
+          title="Music Generation"
+          description="Turn your prompt into music."
+        />
+
+        {isLoading && (
+          <div className="p-8 rounded-lg w-full h-[600px] flex flex-col items-center justify-center">
+            <Loader />
+            <p className="text-white mt-10 font-dmSans font-normal text-center text-[18px]">
+              Generating music...
+            </p>
+          </div>
+        )}
+        {!music && !isLoading && <Empty label="No music generated" />}
+        <div className="px-10">
+          {music && (
+            <audio controls className="w-full mt-8">
+              <source src={music} />
+            </audio>
+          )}
+        </div>
+      </div>
+      <div className="w-full flex flex-row justify-between px-4">
+        <div className="w-full">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2"
+              className="rounded-lg flex flex-row justify-between w-full p-4 px-3 md:px-6 focus-within:shadow-sm gap-2"
             >
               <FormField
                 name="prompt"
                 render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-10">
-                    <FormControl className="m-0 p-0">
+                  <FormItem className="w-full">
+                    <FormControl className="m-0 p-0 px-5">
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
@@ -82,26 +98,14 @@ const MusicPage = () => {
                 )}
               />
               <Button
-                className="col-span-12 lg:col-span-2 w-full"
+                type="submit"
+                className="w-[60px] h-[60px] rounded-[10px] ml-2"
                 disabled={isLoading}
               >
-                Generate
+                <Sparkles fill="white" />
               </Button>
             </form>
           </Form>
-        </div>
-        <div className="space-y-4 mt-4">
-          {isLoading && (
-            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-              <Loader />
-            </div>
-          )}
-          {!music && !isLoading && <Empty label="No music generated" />}
-          {music && (
-            <audio controls className="w-full mt-8">
-              <source src={music} />
-            </audio>
-          )}
         </div>
       </div>
     </div>

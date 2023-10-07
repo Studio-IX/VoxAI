@@ -1,100 +1,106 @@
 "use client";
 
-import {
-  MessageSquare,
-  ImageIcon,
-  VideoIcon,
-  Music,
-  Code,
-  Check,
-  Zap,
-} from "lucide-react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-import { cn } from "@/lib/utils";
-
-import { DialogTitle } from "@radix-ui/react-dialog";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogFooter,
   DialogHeader,
-} from "./ui/dialog";
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 import { useProModal } from "@/hooks/use-pro-modal";
-import { Badge } from "./ui/badge";
-import { Card } from "./ui/card";
-import { Button } from "./ui/button";
-
-const tools = [
-  {
-    label: "Conversation",
-    icon: MessageSquare,
-    color: "text-violet-500",
-    bgColor: "bg-violet-500/10",
-  },
-  {
-    label: "Music Generation",
-    icon: Music,
-    color: "text-emerald-500",
-    bgColor: "bg-emerald-500/10",
-  },
-  {
-    label: "Image Generation",
-    icon: ImageIcon,
-    color: "text-pink-700",
-    bgColor: "bg-pink-700/10",
-  },
-  {
-    label: "Video Generation",
-    icon: VideoIcon,
-    color: "text-orange-700",
-    bgColor: "bg-orange-700/10",
-  },
-  {
-    label: "Code Generation",
-    icon: Code,
-    color: "text-green-700",
-    bgColor: "bg-green-700/10",
-  },
-];
+import { Sparkles } from "lucide-react";
+import Image from "next/image";
 
 export const ProModal = () => {
   const proModal = useProModal();
+  const [isMounted, setIsMounted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const onSubscribe = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get("/api/stripe");
+
+      window.location.href = response.data.url;
+    } catch (error) {
+      toast({
+        description: "Something went wrong",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <Dialog open={proModal.isOpen} onOpenChange={proModal.onClose}>
       <DialogContent>
-        <DialogHeader>
-          <DialogTitle className="flex justify-center items-center flex-col gap-y-4 pb-2">
-            <div className="flex items-center gap-x-2 font-bold py-1">
-              Upgrade to Premium
-              <Badge variant="premium" className="uppercase text-sm py-1">
-                pro
-              </Badge>
-            </div>
-          </DialogTitle>
-          <DialogDescription className="text-center pt-2 space-y-2 text-zinc-900 font-medium">
-            {tools.map((tool) => (
-              <Card
-                key={tool.label}
-                className="p-3 border-black/5 flex items-center justify-between"
-              >
-                <div className="flex items-center gap-x-4">
-                  <div className={cn("p-2 w-fit rounded-md", tool.bgColor)}>
-                    <tool.icon className={cn("w-6 h-6", tool.color)} />
-                  </div>
-                  <div className="font-semibold text-sm">{tool.label}</div>
-                </div>
-                <Check className="text-primary w-5 h-5" />
-              </Card>
-            ))}
+        <DialogHeader className="space-y-2">
+          <DialogTitle className="text-center">Get Premium</DialogTitle>
+          <DialogDescription className="text-center">
+            Unlock exclusive features <br />
+            with our premium plan.
           </DialogDescription>
         </DialogHeader>
-        <DialogFooter>
-            <Button size="lg" variant="premium" className="w-full">
-                Upgrade
-                <Zap className="w-4 h-4 ml-2 fill-white"/>
-            </Button>
-        </DialogFooter>
+        <div className="flex flex-col space-y-2 items-start justify-center">
+          <div className="flex flex-row items-center">
+            <Image width={20} height={20} src="/check.svg" alt="Check" />
+            <p className="ml-3 font-dmSans font-normal text-[16px] text-white">
+              Unlimited generations
+            </p>
+          </div>
+          <div className="flex flex-row items-center">
+            <Image width={20} height={20} src="/check.svg" alt="Check" />
+            <p className="ml-3 font-dmSans font-normal text-[16px] text-white">
+              Faster generations
+            </p>
+          </div>
+          <div className="flex flex-row items-center">
+            <Image width={20} height={20} src="/check.svg" alt="Check" />
+            <p className="ml-3 font-dmSans font-normal text-[16px] text-white">
+              Advanced AI model
+            </p>
+          </div>
+          <div className="flex flex-row items-center">
+            <Image width={20} height={20} src="/check.svg" alt="Check" />
+            <p className="ml-3 font-dmSans font-normal text-[16px] text-white">
+              Email support
+            </p>
+          </div>
+          <div className="flex flex-row items-center">
+            <Image width={20} height={20} src="/check.svg" alt="Check" />
+            <p className="ml-3 font-dmSans font-normal text-[16px] text-white">
+              Premium support
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center justify-center">
+          <Button
+            className="w-[300px]"
+            onClick={onSubscribe}
+            disabled={loading}
+            size="xl"
+            variant="premium"
+          >
+            Upgrade to Pro
+            <Sparkles className="h-5 w-5 fill-white text-white ml-2" />
+          </Button>
+        </div>
       </DialogContent>
     </Dialog>
   );

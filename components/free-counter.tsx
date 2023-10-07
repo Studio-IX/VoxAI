@@ -16,8 +16,7 @@ interface FreeCounterProps {
 export const FreeCounter = ({ apiLimitCount = 0 }: FreeCounterProps) => {
   const proModal = useProModal();
   const [mounted, setMounted] = useState(false);
-
-  const { isLoaded, isSignedIn, user } = useUser();
+  const { user } = useUser();
 
   useEffect(() => {
     setMounted(true);
@@ -35,17 +34,17 @@ export const FreeCounter = ({ apiLimitCount = 0 }: FreeCounterProps) => {
             <div className="flex flex-row items-center">
               <UserAvatar />
               <div className="flex flex-col ml-4 w-full">
-                <div className="flex flex-row items-center w-full justify-between">
+                <div className="flex flex-row items-center w-full">
                   <p className="text-start text-[15px] font-dmSans font-medium">
                     {user?.fullName}
                   </p>
-                  <div className="ml-3 bg-[#3D7253] px-[5px] py-[2px] rounded-md">
+                  <div className="ml-3 bg-[#3D7253] px-[6px] py-[2px] rounded-md">
                     <p className="text-white text-[12px] font-dmSans font-normal">
                       Free
                     </p>
                   </div>
                 </div>
-                <p className="text-start text-[#B2B2B2] text-[15px] font-dmSans font-normal">
+                <p className="text-start text-[#B2B2B2] text-[15px] font-dmSans font-normal mt-1">
                   {
                     user?.emailAddresses.find((address) => address)
                       ?.emailAddress
