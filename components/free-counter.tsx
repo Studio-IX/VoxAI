@@ -28,7 +28,7 @@ export const FreeCounter = ({ apiLimitCount = 0 }: FreeCounterProps) => {
 
   return (
     <div className="px-2">
-      <Card className="bg-[#1D1B29] border-0 mb-[30px]">
+      <Card className="bg-[#1D1B29] border-0 md:mb-[30px]">
         <CardContent className="py-6 ">
           <div className="text-center text-sm text-white mb-4">
             <div className="flex flex-row items-center">

@@ -63,17 +63,17 @@ const CodePage = () => {
   };
 
   return (
-    <div className="flex flex-col justify-between h-[85vh]">
+    <div className="flex flex-col md:justify-between justify-between h-[89vh] md:h-[85vh]">
       <div>
         <Heading
           title="Code Generation"
           description="Our most advanced code generation model."
         />
-        <div className="px-6 bg-[#1A1924]">
-          <div className="flex-1 overflow-y-auto pr-4 pl-4 pt-4 pb-4">
+        <div className="md:px-6 md:bg-[#1A1924]">
+          <div className="flex-1 overflow-y-auto md:pr-4 md:pl-4 md:pt-4 md:pb-4">
             <div className="space-y-4 mt-4">
               {isLoading && (
-                <div className="p-8 rounded-lg w-full h-[600px] flex flex-col items-center justify-center">
+                <div className="p-8 rounded-lg w-full md:h-[600px] flex flex-col items-center justify-center">
                   <Loader />
                   <p className="text-white mt-10 font-dmSans font-normal text-center text-[18px]">
                     Generating code...
@@ -83,7 +83,7 @@ const CodePage = () => {
               {messages.length === 0 && !isLoading && (
                 <Empty label="No code generated" />
               )}
-              <div className="flex flex-col gap-y-6 overflow-y-auto">
+              <div className="flex flex-col gap-3 md:gap-y-6 overflow-y-auto mb-10">
                 {messages.map((message) => (
                   <div
                     className={cn(
@@ -95,45 +95,42 @@ const CodePage = () => {
                     key={message.content}
                   >
                     {message.role === "user" ? (
-                      <div className="ml-6">
+                      <div className="ml-3 md:ml-6">
                         <UserAvatar />
                       </div>
                     ) : (
-                      <div className="mr-6">
+                      <div className="mr-3 md:mr-6">
                         <BotAvatar />
                       </div>
                     )}
                     <div
                       key={message.content}
                       className={cn(
-                        "px-4 py-4 w-fit flex items-center gap-x-8 rounded-[10px]",
+                        "px-3 md:px-4 py-2 md:py-4 w-fit flex items-center gap-x-8 rounded-[10px]",
                         message.role === "user"
                           ? "bg-[#242231] text-white "
-                          : "bg-[#1A1924] text-white"
+                          : "text-white"
                       )}
                     >
-
-                    <ReactMarkdown
-                      components={{
-                        pre: ({ node, ...props }) => (
-                          <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
-                            <pre {...props} />
-                          </div>
-                        ),
-                        code: ({ node, ...props }) => (
-                          <code
-                            className="bg-black/10 rounded-lg p-1"
-                            {...props}
-                          />
-                        ),
-                      }}
-                      className="text-sm overflow-hidden leading-7"
-                    >
-                      {message.content || ""}
-                    </ReactMarkdown>
-
+                      <ReactMarkdown
+                        components={{
+                          pre: ({ node, ...props }) => (
+                            <div className="overflow-auto w-full my-2 bg-[#242231] p-5 rounded-lg">
+                              <pre {...props} />
+                            </div>
+                          ),
+                          code: ({ node, ...props }) => (
+                            <code
+                              className="bg-[#6666D4] rounded-lg p-1"
+                              {...props}
+                            />
+                          ),
+                        }}
+                        className="text-sm overflow-hidden leading-7"
+                      >
+                        {message.content || ""}
+                      </ReactMarkdown>
                     </div>
-
                   </div>
                 ))}
               </div>
@@ -142,17 +139,17 @@ const CodePage = () => {
         </div>
       </div>
 
-      <div className="w-full flex flex-row justify-between px-4 bg-[#1A1924]">
+      <div className="w-full flex flex-row justify-between md:px-4 md:bg-[#1A1924] pb-5 md:pb-0">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="rounded-lg w-full flex flex-row justify-between p-4 px-3 md:px-6 focus-within:shadow-sm gap-2"
+            className="rounded-lg w-full flex flex-row justify-between md:p-4 md:px-6 focus-within:shadow-sm gap-2"
           >
             <FormField
               name="prompt"
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormControl className="m-0 p-0 px-5">
+                  <FormControl className="m-0 p-0 px-3 md:px-5">
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading}
@@ -164,7 +161,7 @@ const CodePage = () => {
               )}
             />
             <Button
-              className="w-[60px] h-[60px] rounded-[10px] ml-2"
+              className="w-[50px] md:w-[60px] h-[50px] md:h-[60px] rounded-[10px] md:ml-2"
               disabled={isLoading}
             >
               <Sparkles fill="white" />

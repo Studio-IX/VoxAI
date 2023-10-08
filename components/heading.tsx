@@ -5,7 +5,7 @@ interface HeadingProps {
 
 export const Heading = ({ title, description }: HeadingProps) => {
   return (
-    <div className="flex flex-col items-start px-10 -mt-10 space-y-3">
+    <div className="flex flex-col items-start md:px-10 md:-mt-10 space-y-1 md:space-y-3">
       <h2 className="text-2xl md:text-[28px] font-semibold text-start text-white">
         {title}
       </h2>

@@ -1,6 +1,6 @@
 "use client";
 
-import { DotLoader, HashLoader  } from "react-spinners";
+import { HashLoader  } from "react-spinners";
 
 const Loader = () => {
   return <HashLoader  color="#6666D4" />;

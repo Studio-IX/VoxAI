@@ -64,7 +64,7 @@ const PhotoPage = () => {
   };
 
   return (
-    <div className="flex flex-col justify-between h-[85vh]">
+    <div className="flex flex-col justify-between h-[89vh] md:h-[85vh]">
       <div>
         <Heading
           title="Image Generation"
@@ -73,22 +73,24 @@ const PhotoPage = () => {
         {isLoading && (
           <div className="p-8 rounded-lg w-full h-[600px] flex flex-col items-center justify-center">
             <Loader />
-            <p className="text-white mt-10 font-dmSans font-normal text-center text-[18px]">Generating images</p>
+            <p className="text-white mt-10 font-dmSans font-normal text-center text-[18px]">
+              Generating images
+            </p>
           </div>
         )}
         {photos.length === 0 && !isLoading && (
           <Empty label="No images generated." />
         )}
-        <div className="w-[88%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8 pl-10 gap-7">
+        <div className="w-full md:w-[88%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8 md:pl-10 gap-0 md:gap-7">
           {photos.map((src) => (
             <Card
               key={src}
-              className="rounded-[15px] overflow-hidden border-none w-[310px] h-[305px] flex flex-col"
+              className="rounded-[15px] overflow-hidden border-none w-full md:w-[310px] h-[305px] flex flex-col mb-5"
             >
-              <div className="relative w-[310px] h-[305px]">
+              <div className="relative w-full md:w-[310px] h-[305px]">
                 <Image fill alt="Generated" src={src} />
               </div>
-              <div className="absolute mt-[225px] ml-[230px]">
+              <div className="absolute p-4 md:p-0 md:mt-[225px] md:ml-[230px]">
                 <Button
                   onClick={() => window.open(src)}
                   variant="primary"
@@ -101,103 +103,208 @@ const PhotoPage = () => {
           ))}
         </div>
       </div>
-      <div className="w-full flex flex-row justify-between px-4">
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="
+      <div className="hidden md:block">
+        <div className="w-full flex flex-col md:flex-row justify-between md:px-4 pb-5 md:pb-0">
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="
               rounded-lg  
               w-full 
               flex
-              flex-row
+              flex-col
+              md:flex-row
               justify-between
-              p-4 
-              px-3 
+              md:p-4
               md:px-6 
               focus-within:shadow-sm
               gap-2
             "
-          >
-            <div className="flex flex-row w-full bg-[#242231] items-center rounded-[10px] space-x-2 pr-2">
-              <FormField
-                name="prompt"
-                render={({ field }) => (
-                  <FormItem className="w-full">
-                    <FormControl className="m-0 p-0 px-5">
-                      <Input
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        disabled={isLoading}
-                        placeholder="A picture of a horse in Swiss alps"
-                        {...field}
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="amount"
-                render={({ field }) => (
-                  <FormItem className="w-[250px]">
-                    <Select
-                      disabled={isLoading}
-                      onValueChange={field.onChange}
-                      value={field.value}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue defaultValue={field.value} />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {amountOptions.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="resolution"
-                render={({ field }) => (
-                  <FormItem className="w-[250px]">
-                    <Select
-                      disabled={isLoading}
-                      onValueChange={field.onChange}
-                      value={field.value}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue defaultValue={field.value} />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {resolutionOptions.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </FormItem>
-                )}
-              />
-            </div>
-            <Button
-              type="submit"
-              className="w-[60px] h-[60px] rounded-[10px] ml-2"
-              disabled={isLoading}
             >
-              <Sparkles fill="white" />
-            </Button>
-          </form>
-        </Form>
+              <div className="flex flex-row w-full bg-[#242231] items-center rounded-[10px] space-x-2 md:pr-2">
+                <FormField
+                  name="prompt"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormControl className="m-0 p-0 px-3 md:px-5">
+                        <Input
+                          className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                          disabled={isLoading}
+                          placeholder="A picture of a horse in Swiss alps"
+                          {...field}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="amount"
+                  render={({ field }) => (
+                    <FormItem className="w-[250px]">
+                      <Select
+                        disabled={isLoading}
+                        onValueChange={field.onChange}
+                        value={field.value}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue defaultValue={field.value} />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {amountOptions.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                              {option.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="resolution"
+                  render={({ field }) => (
+                    <FormItem className="w-[250px]">
+                      <Select
+                        disabled={isLoading}
+                        onValueChange={field.onChange}
+                        value={field.value}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue defaultValue={field.value} />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {resolutionOptions.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                              {option.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+              </div>
+              <Button
+                type="submit"
+                className="w-[50px] md:w-[60px] h-[50px] md:h-[60px] rounded-[10px] ml-2"
+                disabled={isLoading}
+              >
+                <Sparkles fill="white" />
+              </Button>
+            </form>
+          </Form>
+        </div>
+      </div>
+
+      <div className="md:hidden">
+        <div className="w-full flex flex-row justify-between md:px-4 pb-5 md:pb-0">
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="
+              rounded-lg  
+              w-full 
+              flex
+              flex-col
+              justify-between
+              md:p-4
+              md:px-6 
+              focus-within:shadow-sm
+              gap-2
+            "
+            >
+              <div className="flex flex-row gap-x-3 justify-between w-full">
+                <FormField
+                  control={form.control}
+                  name="amount"
+                  render={({ field }) => (
+                    <FormItem className="w-[250px]">
+                      <Select
+                        disabled={isLoading}
+                        onValueChange={field.onChange}
+                        value={field.value}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue defaultValue={field.value} />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {amountOptions.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                              {option.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="resolution"
+                  render={({ field }) => (
+                    <FormItem className="w-[250px]">
+                      <Select
+                        disabled={isLoading}
+                        onValueChange={field.onChange}
+                        value={field.value}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue defaultValue={field.value} />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {resolutionOptions.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                              {option.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              <div className="flex flex-row justify-between w-full">
+                <FormField
+                  name="prompt"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormControl className="m-0 p-0 px-3 md:px-5">
+                        <Input
+                          className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                          disabled={isLoading}
+                          placeholder="A picture of a horse in Swiss alps"
+                          {...field}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                <Button
+                  type="submit"
+                  className="w-[50px] md:w-[60px] h-[50px] md:h-[60px] rounded-[10px] ml-2"
+                  disabled={isLoading}
+                >
+                  <Sparkles fill="white" />
+                </Button>
+              </div>
+            </form>
+          </Form>
+        </div>
       </div>
     </div>
   );

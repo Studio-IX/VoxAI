@@ -67,7 +67,7 @@ const VideoPage = () => {
           </div>
         )}
         {!video && !isLoading && <Empty label="No video generated" />}
-        <div className="px-10">
+        <div className="md:px-10 pb-10 md:pb-0">
           {video && (
             <video
               controls
@@ -78,18 +78,18 @@ const VideoPage = () => {
           )}
         </div>
       </div>
-      <div className="w-full flex flex-row justify-between px-4">
+      <div className="w-full flex flex-row justify-between md:px-4">
         <div className="w-full">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="rounded-lg flex flex-row justify-between w-full p-4 px-3 md:px-6 focus-within:shadow-sm gap-2"
+              className="rounded-lg flex flex-row justify-between w-full md:p-4 md:px-6 focus-within:shadow-sm gap-2"
             >
               <FormField
                 name="prompt"
                 render={({ field }) => (
                   <FormItem className="w-full">
-                    <FormControl className="m-0 p-0 px-5">
+                    <FormControl className="m-0 p-0 px-3 md:px-5">
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
@@ -102,7 +102,7 @@ const VideoPage = () => {
               />
               <Button
                 type="submit"
-                className="w-[60px] h-[60px] rounded-[10px] ml-2"
+                className="w-[50px] md:w-[60px] h-[50px] md:h-[60px] rounded-[10px] md:ml-2"
                 disabled={isLoading}
               >
                 <Sparkles fill="white" />

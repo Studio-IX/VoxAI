@@ -60,9 +60,9 @@ interface SidebarProps {
 const Sidebar = ({ apiLimitCount = 0 }: SidebarProps) => {
   const pathname = usePathname();
 return (
-    <div className="space-y-4 py-4 flex flex-col h-screen bg-[#14131C] w-[350px] px-2 text-white">
+    <div className="space-y-4 py-4 flex flex-col h-screen bg-[#14131C] w-[330px] md:w-[350px] px-2 text-white">
       <div className="px-3 py-2 flex-1">
-        <Link href="/dashboard" className="flex items-center pl-3 mb-14">
+        <Link href="/dashboard" className="flex items-center pl-3 mb-12 md:mb-14">
           <Image width={155} height={35} alt="Logo" src="/vox.svg" />
         </Link>
         <div className="space-y-1">
@@ -71,7 +71,7 @@ return (
               href={route.href}
               key={route.href}
               className={cn(
-                "text-[18px] font-dmSans font-normal group flex p-3 w-full justify-start cursor-pointer hover:text-white hover:bg-[#6666D4]/10 rounded-lg transition",
+                "text-[16px] md:text-[18px] font-dmSans font-normal group flex p-3 w-[280px] md:w-full justify-start cursor-pointer hover:text-white hover:bg-[#6666D4]/10 rounded-lg transition",
                 pathname === route.href
                   ? "text-white bg-[#6666D4] hover:bg-[#6666D4]"
                   : "text-[#B2B2B2]"
