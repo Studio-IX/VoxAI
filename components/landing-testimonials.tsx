@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 const LandingTestimonials = () => {
   return (
     <div
-      id="testimonials"
+      id="testimonial"
       className="w-full flex flex-col items-center md:px-0 pt-40 md:py-40"
     >
       <div className="mb-20 px-5">

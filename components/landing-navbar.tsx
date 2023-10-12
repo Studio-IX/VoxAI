@@ -45,11 +45,11 @@ export const LandingNavbar = () => {
 
       <div className="hidden md:block">
         <div className="flex flex-row border bg-[#14131C] border-[#2D2C54] rounded-full py-4 px-10 space-x-8">
-          <p className="text-white cursor-pointer font-dmSans">Features</p>
-          <p className="text-white cursor-pointer font-dmSans">About</p>
-          <p className="text-white cursor-pointer font-dmSans">Testimonials</p>
-          <p className="text-white cursor-pointer font-dmSans">Pricing</p>
-          <p className="text-white cursor-pointer font-dmSans">FAQ</p>
+          <a href="#features" className="text-white cursor-pointer font-dmSans">Features</a>
+          <a href="#about" className="text-white cursor-pointer font-dmSans">About</a>
+          <a href="#testimonial" className="text-white cursor-pointer font-dmSans">Testimonials</a>
+          <a href="#pricing" className="text-white cursor-pointer font-dmSans">Pricing</a>
+          <a href="#faq" className="text-white cursor-pointer font-dmSans">FAQ</a>
         </div>
       </div>
 

@@ -43,7 +43,7 @@ export const LandingFaq: React.FC = () => {
             onClick={() => handleQuestionClick(0)}
           >
             <h2 className="text-white text-[16px] md:text-[20px] font-dmSans font-medium">
-              What is Nova?
+              What is VOX AI, and what does it offer?
             </h2>
             <Image
               width={20}
@@ -61,11 +61,12 @@ export const LandingFaq: React.FC = () => {
           >
             <div className="answer-container mx-5">
               <p className="text-[#9B9CA1] font-dmSans font-normal text-[16px] md:text-md mt-2 w-full md:w-[620px]">
-                AI Powered Invoicing is an innovative software solution that
-                harnesses the power of artificial intelligence to simplify and
-                automate the invoicing process. It uses advanced algorithms to
-                streamline workflows, improve accuracy, and optimize payment
-                management.
+                VOX AI is an all-in-one AI SaaS tool that offers a wide range of
+                creative and productivity features. It includes capabilities for
+                image generation, conversation generation, video generation,
+                music generation, and code generation. It harnesses the power of
+                artificial intelligence to assist users in various creative and
+                professional tasks.
               </p>
             </div>
           </CSSTransition>
@@ -81,7 +82,7 @@ export const LandingFaq: React.FC = () => {
             onClick={() => handleQuestionClick(1)}
           >
             <h2 className="text-white text-[16px] md:text-[20px] font-dmSans font-medium">
-              How does Nova work?
+              How does VOX AI generate images?
             </h2>
             <Image
               width={20}
@@ -99,11 +100,11 @@ export const LandingFaq: React.FC = () => {
           >
             <div className="answer-container mx-5">
               <p className="text-[#9B9CA1] font-dmSans font-normal text-[16px] md:text-md mt-2 w-full md:w-[620px]">
-                AI Powered Invoicing is an innovative software solution that
-                harnesses the power of artificial intelligence to simplify and
-                automate the invoicing process. It uses advanced algorithms to
-                streamline workflows, improve accuracy, and optimize payment
-                management.
+                VOX AI uses advanced neural networks to generate images based on
+                user input or preferences. You can describe the image you want,
+                and VOX AI will use its deep learning models to create images
+                that match your description. You can also fine-tune generated
+                images to your liking.
               </p>
             </div>
           </CSSTransition>
@@ -119,7 +120,7 @@ export const LandingFaq: React.FC = () => {
             onClick={() => handleQuestionClick(2)}
           >
             <h2 className="text-white text-[16px] md:text-[20px] font-dmSans font-medium">
-              Is my data secure with Nova?
+              Can VOX AI generate conversational content?
             </h2>
             <Image
               width={20}
@@ -137,11 +138,10 @@ export const LandingFaq: React.FC = () => {
           >
             <div className="answer-container mx-5">
               <p className="text-[#9B9CA1] font-dmSans font-normal text-[16px] md:text-md mt-2 w-full md:w-[620px]">
-                AI Powered Invoicing is an innovative software solution that
-                harnesses the power of artificial intelligence to simplify and
-                automate the invoicing process. It uses advanced algorithms to
-                streamline workflows, improve accuracy, and optimize payment
-                management.
+                Yes, VOX AI can generate conversational content, including text
+                for chatbots, virtual assistants, or creative dialogue. You can
+                provide prompts or topics, and VOX AI will generate contextually
+                relevant conversational text.
               </p>
             </div>
           </CSSTransition>
@@ -157,7 +157,7 @@ export const LandingFaq: React.FC = () => {
             onClick={() => handleQuestionClick(3)}
           >
             <h2 className="text-white text-[16px] md:text-[20px] font-dmSans font-medium">
-              Can I use Nova for business purposes?
+              How does VOX AI create videos?
             </h2>
             <Image
               width={20}
@@ -175,11 +175,10 @@ export const LandingFaq: React.FC = () => {
           >
             <div className="answer-container mx-5">
               <p className="text-[#9B9CA1] font-dmSans font-normal text-[16px] md:text-md mt-2 w-full md:w-[620px]">
-                AI Powered Invoicing is an innovative software solution that
-                harnesses the power of artificial intelligence to simplify and
-                automate the invoicing process. It uses advanced algorithms to
-                streamline workflows, improve accuracy, and optimize payment
-                management.
+                VOX AI utilizes its AI algorithms to generate videos based on
+                your specifications. You can provide video scripts, scenes, or
+                themes, and VOX AI will create video content, including
+                animations, using its deep learning capabilities.
               </p>
             </div>
           </CSSTransition>
@@ -195,7 +194,7 @@ export const LandingFaq: React.FC = () => {
             onClick={() => handleQuestionClick(4)}
           >
             <h2 className="text-white text-[16px] md:text-[20px] font-dmSans font-medium">
-              How do I get started with Nova?
+              Can VOX AI create music compositions?
             </h2>
             <Image
               width={20}
@@ -213,11 +212,10 @@ export const LandingFaq: React.FC = () => {
           >
             <div className="answer-container mx-5">
               <p className="text-[#9B9CA1] font-dmSans font-normal text-[16px] md:text-md mt-2 w-full md:w-[620px]">
-                AI Powered Invoicing is an innovative software solution that
-                harnesses the power of artificial intelligence to simplify and
-                automate the invoicing process. It uses advanced algorithms to
-                streamline workflows, improve accuracy, and optimize payment
-                management.
+                Yes, VOX AI can generate music compositions. You can specify the
+                genre, mood, and other preferences, and VOX AI will produce
+                original music tracks. This feature is ideal for musicians,
+                content creators, or anyone in need of background music.
               </p>
             </div>
           </CSSTransition>
@@ -233,7 +231,7 @@ export const LandingFaq: React.FC = () => {
             onClick={() => handleQuestionClick(5)}
           >
             <h2 className="text-white text-[16px] md:text-[20px] font-dmSans font-medium">
-              Can I change my AI companion&apos;s personality over time?
+              How does VOX AI assist with code generation?
             </h2>
             <Image
               width={20}
@@ -251,11 +249,11 @@ export const LandingFaq: React.FC = () => {
           >
             <div className="answer-container mx-5">
               <p className="text-[#9B9CA1] font-dmSans font-normal text-[16px] md:text-md mt-2 w-full md:w-[620px]">
-                AI Powered Invoicing is an innovative software solution that
-                harnesses the power of artificial intelligence to simplify and
-                automate the invoicing process. It uses advanced algorithms to
-                streamline workflows, improve accuracy, and optimize payment
-                management.
+                VOX AI can help developers by generating code snippets or
+                assisting in code completion. Whether you need code for a
+                specific task or require help with coding in a particular
+                programming language, VOX AI can provide code suggestions and
+                support.
               </p>
             </div>
           </CSSTransition>
@@ -271,7 +269,7 @@ export const LandingFaq: React.FC = () => {
             onClick={() => handleQuestionClick(6)}
           >
             <h2 className="text-white text-[16px] md:text-[20px] font-dmSans font-medium">
-              What platforms and devices does Nova support?
+              Is VOX AI suitable for businesses and individuals?
             </h2>
             <Image
               width={20}
@@ -289,11 +287,12 @@ export const LandingFaq: React.FC = () => {
           >
             <div className="answer-container mx-5">
               <p className="text-[#9B9CA1] font-dmSans font-normal text-[16px] md:text-md mt-2 w-full md:w-[620px]">
-                AI Powered Invoicing is an innovative software solution that
-                harnesses the power of artificial intelligence to simplify and
-                automate the invoicing process. It uses advanced algorithms to
-                streamline workflows, improve accuracy, and optimize payment
-                management.
+                Yes, VOX AI is suitable for both businesses and individuals.
+                Businesses can benefit from its productivity features for
+                marketing, content creation, and development. Individuals,
+                including content creators, artists, and developers, can use it
+                for various creative and professional projects. VOX AI offers
+                subscription plans tailored to the needs of different users.
               </p>
             </div>
           </CSSTransition>
