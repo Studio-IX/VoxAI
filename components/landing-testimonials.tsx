@@ -61,8 +61,8 @@ const LandingTestimonials = () => {
           <p className="text-[16px] text-white font-dmSans font-normal">
             I run a small e-commerce business, and VOX AI&apos;s image
             generation has helped me create product images and advertisements
-            effortlessly. It&apos;s user-friendly and incredibly powerful and has
-            helped streamline my design process.
+            effortlessly. It&apos;s user-friendly and incredibly powerful and
+            has helped streamline my design process.
           </p>
 
           <div className="flex flex-row mt-4">
