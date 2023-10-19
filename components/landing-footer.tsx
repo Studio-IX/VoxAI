@@ -62,10 +62,16 @@ const LandingFooter = () => {
               >
                 Contact
               </a>
-              <a href="" className="mt-3 footer_item">
+              <a
+                href="https://childlike-brow-7b5.notion.site/Vox-Terms-of-Service-56262b0432404e52bfcfed923d9a773e"
+                className="mt-3 footer_item"
+              >
                 Terms of service
               </a>
-              <a href="" className="mt-3 footer_item">
+              <a
+                href="https://childlike-brow-7b5.notion.site/Vox-Privacy-Policy-60b4d69668654adda42e9168982ad0ce?pvs=4"
+                className="mt-3 footer_item"
+              >
                 Privacy policy
               </a>
             </div>
@@ -95,10 +101,16 @@ const LandingFooter = () => {
               <a href="mailto:hey@studioix.agency" className="mt-3 footer_item">
                 Contact
               </a>
-              <a href="https://" className="mt-3 footer_item">
+              <a
+                href="https://childlike-brow-7b5.notion.site/Vox-Terms-of-Service-56262b0432404e52bfcfed923d9a773e"
+                className="mt-3 footer_item"
+              >
                 Terms of service
               </a>
-              <a href="https://" className="mt-3 footer_item">
+              <a
+                href="https://childlike-brow-7b5.notion.site/Vox-Privacy-Policy-60b4d69668654adda42e9168982ad0ce?pvs=4"
+                className="mt-3 footer_item"
+              >
                 Privacy policy
               </a>
             </div>
