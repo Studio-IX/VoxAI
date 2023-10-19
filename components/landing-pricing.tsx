@@ -1,8 +1,15 @@
-import { Sparkles, StarIcon } from "lucide-react";
-import Image from "next/image";
+"use client";
+
+import { Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
+import { useAuth } from "@clerk/nextjs";
+
+import Image from "next/image";
+import Link from "next/link";
 
 export const LandingPricing = () => {
+  const { isSignedIn } = useAuth();
+
   return (
     <div
       id="pricing"
@@ -75,20 +82,18 @@ export const LandingPricing = () => {
               </div>
             </div>
             <div className="flex w-full items-center justify-center">
-              <Button
-                variant="primary_outline_white"
-                size="nav"
-                className="rounded-full w-[85%] mt-10"
-              >
-                Get Started
-                <Image
-                  className="ml-2"
-                  width={24}
-                  height={24}
-                  src="/arrow_right.svg"
-                  alt="Arrow icon"
-                />
-              </Button>
+              <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
+                <button className="flex border border-white bg-transparent text-white py-4 md:py-5 font-dmSans px-24 w-fit items-center justify-center rounded-full text-[16px] md:text-[18px] font-medium mt-10">
+                  Get Started
+                  <Image
+                    className="ml-2"
+                    width={24}
+                    height={24}
+                    src="/arrow_right.svg"
+                    alt="Arrow icon"
+                  />
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -157,20 +162,18 @@ export const LandingPricing = () => {
               </div>
             </div>
             <div className="flex w-full items-center justify-center">
-              <Button
-                variant="primary"
-                size="nav"
-                className="rounded-full w-[85%] mt-10"
-              >
-                Get Started
-                <Image
-                  className="ml-2"
-                  width={24}
-                  height={24}
-                  src="/arrow_right.svg"
-                  alt="Arrow icon"
-                />
-              </Button>
+              <Link href="https://studioixagency.lemonsqueezy.com/checkout/buy/285a3cd1-cf55-44db-aeea-b02ccec3c111">
+                <button className="flex bg-[#6666D4] text-white hover:bg-[#6666D4]/90 transition-all py-4 md:py-5 font-dmSans px-20 w-fit items-center justify-center rounded-full text-[16px] md:text-[18px] font-medium mt-10">
+                  Purchase Now
+                  <Image
+                    className="ml-2"
+                    width={24}
+                    height={24}
+                    src="/arrow_right.svg"
+                    alt="Arrow icon"
+                  />
+                </button>
+              </Link>
             </div>
           </div>
         </div>

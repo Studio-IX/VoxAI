@@ -62,12 +62,12 @@ export const LandingHero = () => {
 
       <div className="flex flex-row items-center justify-center space-x-4 py-10 z-10">
         <div>
-          <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
+          <a href="#pricing">
             <Button size="nav" variant="primary" className="rounded-full">
               Learn Pricing
               <ChevronRight />
             </Button>
-          </Link>
+          </a>
         </div>
 
         <div>

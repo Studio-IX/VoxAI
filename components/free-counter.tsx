@@ -45,10 +45,10 @@ export const FreeCounter = ({ apiLimitCount = 0 }: FreeCounterProps) => {
                   </div>
                 </div>
                 <p className="text-start text-[#B2B2B2] text-[15px] font-dmSans font-normal mt-1">
-                  {
-                    user?.emailAddresses.find((address) => address)
-                      ?.emailAddress
-                  }
+                  {user?.emailAddresses?.[0]?.emailAddress.slice(0, 24) +
+                    (user?.emailAddresses?.[0]?.emailAddress.length > 24
+                      ? "..."
+                      : "")}
                 </p>
               </div>
             </div>

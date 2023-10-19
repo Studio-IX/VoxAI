@@ -7,7 +7,6 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -30,9 +29,12 @@ export const ProModal = () => {
   const onSubscribe = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("/api/stripe");
+      //const response = await axios.get("/api/stripe");
 
-      window.location.href = response.data.url;
+      //window.location.href = response.data.url;
+
+      window.location.href =
+        "https://studioixagency.lemonsqueezy.com/checkout/buy/285a3cd1-cf55-44db-aeea-b02ccec3c111";
     } catch (error) {
       toast({
         description: "Something went wrong",
