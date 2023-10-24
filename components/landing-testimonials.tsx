@@ -15,10 +15,10 @@ const LandingTestimonials = () => {
       <Marquee autoFill>
         <div className="flex flex-col p-5 w-[300px] h-fit bg-[#19192A] border border-[#30305D] rounded-[20px] mx-5">
           <p className="text-[16px] text-white font-dmSans font-normal">
-            &quot; VOX AI is a versatile tool that has helped my marketing team
+            VOX AI is a versatile tool that has helped my marketing team
             immensely. From generating images for social media to crafting
             engaging chatbot responses, it&apos;s a must-have for businesses
-            looking to stay ahead in the digital world. &quot;
+            looking to stay ahead in the digital world.
           </p>
 
           <div className="flex flex-row mt-4">

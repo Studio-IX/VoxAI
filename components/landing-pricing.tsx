@@ -27,9 +27,8 @@ export const LandingPricing = () => {
         <div className="flex flex-col items-center justify-center w-full md:w-[385px] h-[720px] pt-[52px] bg-[#19192A] border border-[#6666D4]/10 rounded-[1.8rem]">
           <h6 className="pricing_title">Free</h6>
           <p className="pricing_description w-[310px] mt-4">
-            Nova comes loaded with pre-created personalities and popular
-            individuals dead and alive, Try Albert Einstein or Elon Musk for
-            example.
+            VOX-AI comes loaded with five useful and powerful AI tools to help
+            you create 10 times faster and easier.
           </p>
 
           <h6 className="mt-10 text-[16px] font-dmSans font-normal text-[#9B9CA1]">
@@ -51,7 +50,7 @@ export const LandingPricing = () => {
                   alt="Check icon"
                   src="/check.svg"
                 />
-                <p className="pricing_features">Maximum 2 personalities</p>
+                <p className="pricing_features">Limited access</p>
               </div>
               <div className="flex flex-row space-x-5">
                 <Image
@@ -78,7 +77,7 @@ export const LandingPricing = () => {
                   alt="Check icon"
                   src="/check.svg"
                 />
-                <p className="pricing_features">Email support</p>
+                <p className="pricing_features">Slower response</p>
               </div>
             </div>
             <div className="flex w-full items-center justify-center">
@@ -107,9 +106,8 @@ export const LandingPricing = () => {
           </div>
           <h6 className="pricing_title mt-4">Premium</h6>
           <p className="pricing_description w-[310px] mt-4">
-            Nova comes loaded with pre-created personalities and popular
-            individuals dead and alive, Try Albert Einstein or Elon Musk for
-            example.
+            VOX-AI comes loaded with five useful and powerful AI tools to help
+            you create 10 times faster and easier.
           </p>
 
           <h6 className="mt-10 text-[16px] font-dmSans font-normal text-[#9B9CA1]">
@@ -131,7 +129,7 @@ export const LandingPricing = () => {
                   alt="Check icon"
                   src="/check.svg"
                 />
-                <p className="pricing_features">Maximum 20 personalities</p>
+                <p className="pricing_features">Unlimited access</p>
               </div>
               <div className="flex flex-row space-x-5">
                 <Image
