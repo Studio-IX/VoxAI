@@ -8,6 +8,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+
 const instructionMessage: OpenAI.Chat.ChatCompletionMessage = {
   role: "system",
   content:
