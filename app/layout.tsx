@@ -31,7 +31,7 @@ export default function RootLayout({
       }}
     >
       <html lang="en">
-      <body className={cn("bg-[#14131C]", dmSans.className)}>
+        <body className={cn("bg-[#14131C]", dmSans.className)}>
           <ModalProvider />
           {children}
         </body>
