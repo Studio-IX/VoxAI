@@ -117,8 +117,8 @@ const LandingFooter = () => {
 
             <div className="flex flex-col mt-12 md:mt-0">
               <p className="footer_title">More</p>
-              <a href="https://studioix.agency" className="mt-6 footer_item">
-                Studio IX
+              <a href="https://dantedavisdesign.com" className="mt-6 footer_item">
+                Dante Davis Design
               </a>
             </div>
           </div>
