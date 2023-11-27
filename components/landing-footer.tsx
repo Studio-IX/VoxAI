@@ -117,8 +117,8 @@ const LandingFooter = () => {
 
             <div className="flex flex-col mt-12 md:mt-0">
               <p className="footer_title">More</p>
-              <a href="https://studioix.agency" className="mt-6 footer_item">
-                Studio IX
+              <a href="https://dantedavisdesign.com" className="mt-6 footer_item">
+                Dante Davis Design
               </a>
             </div>
           </div>
@@ -127,8 +127,8 @@ const LandingFooter = () => {
         <div className="md:hidden">
           <div className="flex flex-col mt-12 md:mt-0">
             <p className="footer_title">More</p>
-            <a href="https://studioix.agency" className="mt-6 footer_item">
-              Studio IX
+            <a href="https://dantedavisdesign.com" className="mt-6 footer_item">
+              Dante Davis Design
             </a>
           </div>
         </div>
@@ -138,8 +138,8 @@ const LandingFooter = () => {
         <div className="w-full">
           <p className="footer_item text-center md:text-start">
             © 2023 VOX-AI. All rights reserved. Created by{" "}
-            <a className="underline" href="https://studioix.agency">
-              Studio IX
+            <a className="underline" href="https://dantedavisdesign.com">
+              Dante Davis Design
             </a>
           </p>
         </div>
